@@ -27,7 +27,7 @@ async def on_ready():
 
 @bot.command()
 async def hello(ctx):
-    await ctx.send('Hello! Saya Tams, Asistem Pribadi Kamu!, Ada yang bisa saya bantu?')
+    await ctx.send('Hello! Saya Tams dan tuan saya adalah Arya Wiratama, Asisten Pribadi Kamu!, Ada yang bisa saya bantu?')
 
 @bot.command()
 async def goodbye(ctx):
@@ -55,13 +55,13 @@ async def tanya(ctx, *, pertanyaan):
 
 @bot.event
 async def on_member_join(member):
-    channel = bot.get_channel(1324013904384229460)  
+    channel = member.guild.system_channel
     if channel:
         await channel.send(f"Hello {member.name}, Selamat Datang Di Server!")
 
 @bot.event
 async def on_member_remove(member):
-    channel = bot.get_channel(1324013904384229460)  
+    channel = member.guild.system_channel
     if channel:
         await channel.send(f"{member.name} Telah meninggalkan Server!")
 
